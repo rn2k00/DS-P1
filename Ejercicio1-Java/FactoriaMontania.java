@@ -8,6 +8,24 @@ package ds.prac1;
  *
  * @author Usuario
  */
-public class FactoriaMontania {
+import ds.prac1.BicicletaMontania;
+import ds.prac1.CarreraMontania;
+public class FactoriaMontania implements FactoriaCarrerayBicicleta {
+    
+    public FactoriaMontania(){
+        
+    }
+    
+    @Override
+    public void crearCarrera(){
+        CarreraMontania Carrera1 = new CarreraMontania();
+        
+    }
+    
+    @Override
+    public void crearBicicleta(){
+        BicicletaMontania Bici1 = new BicicletaMontania();
+        
+    }
     
 }
