@@ -9,5 +9,9 @@ package ds.prac1;
  * @author Usuario
  */
 public interface FactoriaCarrerayBicicleta {
+
+    public void crearCarrera();
+    public void crearBicicleta();
+    
     
 }
