@@ -7,7 +7,7 @@
 ## Cambiar de rama
 Lo suyo sería que cada uno se creara una rama y trabaje ahi, así se puede subir los cambios a la rama remota propia y cuando consideremos oportuno mergear con la rama main que ya está creada. 
 - Crear una rama:
-  - Desde gitHub.
+  - Desde github.
   - Desde Visual Studio: abajo a la izquierda aparece un simbolo y al lado el nombre de la rama en la que estás, clicando se puede crear una nueva rama.
   - Desde la terminal: `git branch nombre_rama`
 - Cambiar de rama:
