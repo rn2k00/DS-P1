@@ -5,7 +5,7 @@
 - Otra opción es crear una carpeta donde se quieran tener las prácticas y una vez situado dentro de la carpeta, ejecutar `git clone git@github.com:rn2k00/DS-P1.git`, luego ejecutas `git code` y se te abre Visual Studio.
 
 ## Cambiar de rama
-Lo suyo sería que cada uno se creara una rama y trabaje ahi, así se puede subir los cambios a la rama remota y cuando consideremos oportuno mergear con la rama main que ya está creada. 
+Lo suyo sería que cada uno se creara una rama y trabaje ahi, así se puede subir los cambios a la rama remota propia y cuando consideremos oportuno mergear con la rama main que ya está creada. 
 - Crear una rama:
   - Desde gitHub.
   - Desde Visual Studio: abajo a la izquierda aparece un simbolo y al lado el nombre de la rama en la que estás, clicando se puede crear una nueva rama.
