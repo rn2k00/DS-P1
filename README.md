@@ -7,8 +7,8 @@
 ## Cambiar de rama
 Lo suyo sería que cada uno se creara una rama y trabaje ahi, así se puede subir los cambios a la rama remota propia y cuando consideremos oportuno mergear con la rama main que ya está creada. 
 - Crear una rama:
-  - Desde github.
-  - Desde Visual Studio: abajo a la izquierda aparece un simbolo y al lado el nombre de la rama en la que estás, clicando se puede crear una nueva rama.
+  - Desde GitHub.
+  - Desde Visual Studio: abajo a la izquierda aparece un simbolo y al lado el nombre de la rama en la que estás, clicando se despliega un menú y se puede crear una nueva rama.
   - Desde la terminal: `git branch nombre_rama`
 - Cambiar de rama:
   - Desde Visual Studio: igual que crearla, clicando te da la opcion de cambiarte de rama.
@@ -18,6 +18,6 @@ Lo suyo sería que cada uno se creara una rama y trabaje ahi, así se puede subi
 Ejecutando el comando `git pull` descargamos todo lo nuevo que haya en el repo, como cada uno tiene su rama el trabajo de cada uno no se solapa.
 
 ## Subir los cambios al repo remoto
-Ejecutando el comando `git push` se envian los cambios de tu rama local a la rama remota 
+Ejecutando el comando `git push` se envian los cambios de tu rama local a la rama remota.
 
 Ambos comandos anteriores se puede hacer en Visual Studio navegando por el "Source Control".
