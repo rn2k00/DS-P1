@@ -8,41 +8,37 @@ import java.util.ArrayList;
 public abstract class carrera {
     int duracionMilisegundos = 60000;
     ArrayList<bicicleta> participantes = new ArrayList<bicicleta>(); 
-    int numeroParticipantes;
     float porcentajeARetirar;
     string mensajeInicio;
-    string mensajeRetirada;
     string mensajeFinal;
+    string mensajeRetirada;
 
-    public setPorcentajeARetirar(float porcentaje){
-        porcentajeARetirar = porcentaje;
-    }
-
-    public setMensajeInicio(string mensaje){
-        mensajeInicio = mensaje;
-    }
-
-    public setMensajeRetirada(string mensaje){
-        mensajeRetirada = mensaje;
-    }
-
-    public setMensajeFinal(string mensaje){
-        mensajeFinal = mensaje;
-    }
-
-    public setnumeroParticipantes(int numero){
-        numeroParticipantes = numero;
-    }
-
-    public int numeroARetirar(){
+    private int numeroARetirar(){
         return (int) (numeroParticipantes * porcentajeARetirar);    
     }
     
     public void realizarCarrera(){
         System.out.println(mensajeInicio);
         sleep(duracionMilisegundos);
-        //Retirar participantes
-
+        retirarParticipantes();
         System.out.println(mensajeFinal);
+    }
+
+    private void mensajeRetirada(int[] retirados){
+        System.out.println(mensajeRetirada);
+        for (int i = 0; i < retirados.length; i++) {
+            System.out.println(participantes.get(retirados[i]));
+        }
+    }
+
+    private void retirarParticipantes(){
+        int numeroRetirar = numeroARetirar();
+        int[] retirados = new int[numeroRetirar];
+        for (int i = 0; i < numeroRetirar; i++) {
+            int indiceRetirar = (int) (Math.random() * participantes.size());
+            participantes.remove(indiceRetirar);
+            retirados[i] = indiceRetirar;
+        }
+        mensajeRetirada(retirados);
     }
 }
