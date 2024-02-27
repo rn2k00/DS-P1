@@ -8,11 +8,11 @@ package ds.prac1;
  *
  * @author Usuario
  */
-import ds.prac1.BicicletaMontania;
-import ds.prac1.CarreraMontania;
+import ds.prac1.bicicletaMontana;
+import ds.prac1.carreraMontana;
 public class FactoriaMontania implements FactoriaCarrerayBicicleta {
-    CarreraMontania carre;
-    BicicletaMontania bici;
+    carreraMontana carre;
+    bicicletaMontana bici;
     
     public FactoriaMontania(){
         
@@ -20,13 +20,13 @@ public class FactoriaMontania implements FactoriaCarrerayBicicleta {
     
     @Override
     public void crearCarrera(){
-        carre = new CarreraMontania();
+        carre = new carreraMontana();
         
     }
     
     @Override
     public void crearBicicleta(){
-        bici = new BicicletaMontania();
+        bici = new bicicletaMontana();
         
     }
     
