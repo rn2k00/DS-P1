@@ -2,36 +2,39 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ds.prac1;
+package java;
 
 /**
  *
  * @author Usuario
  */
-import ds.prac1.bicicletaCarretera;
-import ds.prac1.carreraCarretera;
-public class FactoriaCarretera implements FactoriaCarrerayBicicleta{
+import prac1.FactoriaCarreraBicicleta;
+import prac1.bicicletaMontana;
+import prac1.bicicletaCarretera;
+import prac1.carreraCarretera;
+public class FactoriaCarretera extends FactoriaCarreraBicicleta{
     
     carreraCarretera carre;
     bicicletaCarretera bici;
     
-    public FactoriaCarretera(){
-        
-        
-        
+    public FactoriaCarretera(int n){
+        nbicis = n;
+      
+    }
+    
+    @Override
+    public void crearBicicleta(){
+        for (int i = 0; i < nbicis; i++){
+            bici = new bicicletaCarretera(i+1);
+            participantes.add(i, bici);
+        }
         
     }
     
     @Override
     public void crearCarrera(){
-        carre = new carreraCarretera();
+        carre = new carreraCarretera(participantes);
         
     }
-    
-    @Override
-    public void crearBicicleta(){
-        bici = new bicicletaCarretera();
         
-    }
-    
 }
