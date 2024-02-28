@@ -2,16 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package ds.prac1;
+package java;
 
+import java.util.ArrayList;
 /**
  *
  * @author Usuario
  */
-public interface FactoriaCarrerayBicicleta {
-    
-    public void crearCarrera();
-    public void crearBicicleta();
-    
+public abstract class FactoriaCarreraBicicleta {
+    int nbicis;
+    ArrayList<bicicleta> participantes = new ArrayList<bicicleta>(); 
+   
+    public abstract void crearCarrera();
+    public abstract void crearBicicleta();
     
 }
