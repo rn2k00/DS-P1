@@ -12,28 +12,17 @@ import prac1.FactoriaCarreraBicicleta;
 import prac1.bicicletaMontana;
 import prac1.bicicletaCarretera;
 import prac1.carreraCarretera;
+import java.util.ArrayList;
 public class FactoriaCarretera extends FactoriaCarreraBicicleta{
-    
-    carreraCarretera carre;
-    bicicletaCarretera bici;
-    
-    public FactoriaCarretera(int n){
-        nbicis = n;
-      
+          
+    @Override
+    public bicicleta crearBicicleta(int i){
+            return new bicicletaCarretera(i);       
     }
     
     @Override
-    public void crearBicicleta(){
-        for (int i = 0; i < nbicis; i++){
-            bici = new bicicletaCarretera(i+1);
-            participantes.add(i, bici);
-        }
-        
-    }
-    
-    @Override
-    public void crearCarrera(){
-        carre = new carreraCarretera(participantes);
+    public carrera crearCarrera(ArrayList<bicicleta> participantes){
+        return new carreraCarretera(participantes);
         
     }
         
