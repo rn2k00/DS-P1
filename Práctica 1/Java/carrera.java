@@ -27,7 +27,7 @@ public abstract class carrera {
     private void mensajeRetirada(int[] retirados){
         System.out.println(mensajeRetirada);
         for (int i = 0; i < retirados.length; i++) {
-            System.out.println(participantes.get(retirados[i]));
+            System.out.println(retirados[i]);
         }
     }
 
@@ -36,8 +36,8 @@ public abstract class carrera {
         int[] retirados = new int[numeroRetirar];
         for (int i = 0; i < numeroRetirar; i++) {
             int indiceRetirar = (int) (Math.random() * participantes.size());
+            retirados[i] = participantes.get(indiceRetirar).identificador;
             participantes.remove(indiceRetirar);
-            retirados[i] = indiceRetirar;
         }
         mensajeRetirada(retirados);
     }
