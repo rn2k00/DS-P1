@@ -48,11 +48,13 @@ public class main {
         
         carrera Carretera =facto1.crearCarrera(parti_carretera);
         
-        carrera Montana = facto2.crearCarrera(parti_montana);
+        carrera Montana = facto2.crearCarrera(parti_montana);    
         
-        Carretera.realizarCarrera();
-        
-        Montana.realizarCarrera();
+        Thread hebraCarretera = new Thread(Carretera::realizarCarrera);
+        Thread hebraMontana = new Thread(Montana::realizarCarrera);
+
+        hebraCarretera.start();
+        hebraMontana.start();
         
         
         // TODO code application logic here
