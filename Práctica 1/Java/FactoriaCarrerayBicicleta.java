@@ -10,10 +10,9 @@ import java.util.ArrayList;
  * @author Usuario
  */
 public abstract class FactoriaCarreraBicicleta {
-    int nbicis;
-    ArrayList<bicicleta> participantes = new ArrayList<bicicleta>(); 
    
-    public abstract void crearCarrera();
-    public abstract void crearBicicleta();
+    public abstract carrera crearCarrera(ArrayList<bicicleta> participantes);
+    public abstract bicicleta crearBicicleta(int i);
     
 }
+
