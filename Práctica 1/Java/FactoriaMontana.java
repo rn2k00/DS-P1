@@ -11,30 +11,20 @@ package java;
 import prac1.FactoriaCarreraBicicleta;
 import prac1.bicicletaMontana;
 import prac1.carreraMontana;
-public class FactoriaMontana extends FactoriaCarreraBicicleta {
-    carreraMontana carre;
-    bicicletaMontana bici;
+import java.util.ArrayList;
+public class FactoriaMontana extends FactoriaCarreraBicicleta{
     
     
-    public FactoriaMontana(int n){
-        nbicis = n;
-        
+    @Override
+    public bicicleta crearBicicleta(int i){
+            return new bicicletaMontana(i);       
     }
     
     @Override
-    public void crearBicicleta(){
-        for (int i = 0; i < nbicis; i++){
-            bici = new bicicletaMontana(i+1);
-            participantes.add(i, bici);
-        }
+    public carrera crearCarrera(ArrayList<bicicleta> participantes){
+        return new carreraMontana(participantes);
         
     }
-    @Override
-    public void crearCarrera(){
-        carre = new carreraMontana(participantes);
         
-    }
-    
-    
-    
 }
+  
