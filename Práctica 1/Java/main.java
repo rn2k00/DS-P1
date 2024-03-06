@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.ArrayList;
 /**
  *
  * @author Usuario
@@ -30,21 +31,28 @@ public class main {
             Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        FactoriaCarretera facto1 = new FactoriaCarretera(parti);
+        ArrayList<bicicleta> parti_carretera = new ArrayList<bicicleta>();
+        ArrayList<bicicleta> parti_montana = new ArrayList<bicicleta>();
         
-        FactoriaMontana facto2 = new FactoriaMontana(parti);
+        FactoriaCarretera facto1 = new FactoriaCarretera();
         
-        facto1.crearBicicleta();
+        FactoriaMontana facto2 = new FactoriaMontana();
         
-        facto2.crearBicicleta();
+        for (int i = 0; i < parti; i++){
+          bicicleta bici = facto1.crearBicicleta(i+1);
+          bicicleta bici2 = facto2.crearBicicleta(i+1);
+          parti_carretera.add(bici);
+          parti_montana.add(bici2);
+        }
         
-        facto1.crearCarrera();
         
-        facto2.crearCarrera();
+        carrera Carretera =facto1.crearCarrera(parti_carretera);
         
-        facto1.carre.realizarCarrera();
+        carrera Montana = facto2.crearCarrera(parti_montana);
         
-        facto2.carre.realizarCarrera();
+        Carretera.realizarCarrera();
+        
+        Montana.realizarCarrera();
         
         
         // TODO code application logic here
