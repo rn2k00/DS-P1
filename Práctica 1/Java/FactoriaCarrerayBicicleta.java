@@ -9,7 +9,7 @@ import java.util.ArrayList;
  *
  * @author Usuario
  */
-public abstract class FactoriaCarreraBicicleta {
+public interface FactoriaCarreraBicicleta {
    
     public abstract carrera crearCarrera(ArrayList<bicicleta> participantes);
     public abstract bicicleta crearBicicleta(int i);
