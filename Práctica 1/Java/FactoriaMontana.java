@@ -12,7 +12,7 @@ import prac1.FactoriaCarreraBicicleta;
 import prac1.bicicletaMontana;
 import prac1.carreraMontana;
 import java.util.ArrayList;
-public class FactoriaMontana extends FactoriaCarreraBicicleta{
+public class FactoriaMontana implements FactoriaCarreraBicicleta{
     
     
     @Override
