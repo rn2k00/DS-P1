@@ -10,4 +10,6 @@ package prac4;
  */
 public enum EstadoMotor {
     
+    APAGADO, ENCENDIDO, ACELERANDO, FRENANDO
+    
 }
