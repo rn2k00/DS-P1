@@ -10,4 +10,11 @@ package prac4;
  */
 public class Cliente {
     
+    EstadoMotor estadomotor;
+    double revoluciones;
+    
+    public void peticion(double revoluciones, EstadoMotor estadomotor){
+        
+    }
+    
 }
