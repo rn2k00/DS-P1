@@ -10,4 +10,20 @@ package prac4;
  */
 public class GestorFiltros {
     
+    CadenaFiltros cadena;
+    
+    public void addFiltroRoza(){
+        FiltroRepercutirRozamiento fil = new FiltroRepercutirRozamiento();
+        cadena.filtros.add(fil);       
+    }
+    
+    public void addFiltroVelo(){
+        FiltroCalcularVelocidad fil = new FiltroCalcularVelocidad();
+        cadena.filtros.add(fil); 
+    }
+    
+    public void peticionFiltros(){
+        
+    }
+    
 }
