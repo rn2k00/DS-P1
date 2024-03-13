@@ -4,8 +4,8 @@ from BicicletaCarretera import BicicletaCarretera
 
 class FactoriaCarretera(FactoriaCarreraBicicleta):
 
-    def crear_carrera(self):
-        return CarreraCarretera()
+    def crear_carrera(self, bicicletas):
+        return CarreraCarretera(bicicletas)
 
-    def crear_bicicleta(self):
-        return BicicletaCarretera()
+    def crear_bicicleta(self, id):
+        return BicicletaCarretera(id)
