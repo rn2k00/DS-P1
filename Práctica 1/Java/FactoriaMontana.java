@@ -10,20 +10,21 @@ package java;
  */
 import prac1.FactoriaCarreraBicicleta;
 import prac1.bicicletaMontana;
-import prac1.bicicletaCarretera;
-import prac1.carreraCarretera;
+import prac1.carreraMontana;
 import java.util.ArrayList;
-public class FactoriaCarretera implements FactoriaCarreraBicicleta{
-          
+public class FactoriaMontana implements FactoriaCarreraBicicleta{
+    
+    
     @Override
     public bicicleta crearBicicleta(int i){
-            return new bicicletaCarretera(i);       
+            return new bicicletaMontana(i);       
     }
     
     @Override
     public carrera crearCarrera(ArrayList<bicicleta> participantes){
-        return new carreraCarretera(participantes);
+        return new carreraMontana(participantes);
         
     }
         
 }
+  
