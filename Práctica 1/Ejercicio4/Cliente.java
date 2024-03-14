@@ -11,9 +11,35 @@ package prac4;
 public class Cliente {
     
     EstadoMotor estadomotor;
-    double revoluciones;
+    double rev;
+    GestorFiltros gestor;
     
-    public void peticion(double revoluciones, EstadoMotor estadomotor){
+    public Cliente(){
+        
+        gestor = new GestorFiltros();
+        estadomotor = EstadoMotor.APAGADO;
+        rev = 0;
+    }
+    
+    public void arrancar(){
+        estadomotor = EstadoMotor.ENCENDIDO;
+    }
+    
+     public void acelerar(){
+        estadomotor = EstadoMotor.ACELERANDO;
+    }
+     
+      public void frenar(){
+        estadomotor = EstadoMotor.FRENANDO;
+    }
+      
+    public void apagar(){
+        estadomotor = EstadoMotor.APAGADO;
+    }
+    
+    public void peticion(){
+        rev =gestor.peticionFiltros(rev, estadomotor);
+        
         
     }
     
