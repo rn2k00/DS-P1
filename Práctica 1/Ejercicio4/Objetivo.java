@@ -11,7 +11,12 @@ package prac4;
 public class Objetivo {
     
     public double ejecutar(double revoluciones, EstadoMotor estadomotor){
-        return 0;
+        double vel_lineal = (2 * Math.PI * 0.15 * revoluciones * 60)/1000;
+        System.out.println("RPM: " + revoluciones);
+        System.out.println("Velocidad: " + vel_lineal + " Km/h");
+        System.out.println("Distancia recorrida (Kms): ");
+        
+        return revoluciones;
     }
     
     
