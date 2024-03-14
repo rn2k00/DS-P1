@@ -17,7 +17,7 @@ public class FiltroRepercutirRozamiento implements Filtro {
         if(estadomotor == EstadoMotor.ACELERANDO || estadomotor == EstadoMotor.FRENANDO)
             return revoluciones - rozamiento;       
         else
-            return -1;
+            return 0;
     }
     
 }
