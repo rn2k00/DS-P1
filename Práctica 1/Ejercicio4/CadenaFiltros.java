@@ -14,13 +14,19 @@ public class CadenaFiltros {
     public ArrayList<Filtro> filtros;
     public Objetivo obj;
     
-    public void ejecutar(double revoluciones, EstadoMotor estadomotor){
+    public CadenaFiltros(){
+        obj = new Objetivo();
+        filtros = new ArrayList<Filtro>();
+    }
+    
+    public double ejecutar(double revoluciones, EstadoMotor estadomotor){
         double new_rev = 0;
         for (int i = 0; i < filtros.size(); i++){
             new_rev +=filtros.get(i).ejecutar(revoluciones, estadomotor);
         }
         
-        obj.ejecutar(new_rev, estadomotor);
+        return obj.ejecutar(new_rev, estadomotor);
     }
     
 }
+
