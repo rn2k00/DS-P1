@@ -30,7 +30,7 @@ public class FiltroCalcularVelocidad implements Filtro{
                 devolver = 0;           
         }        
         else{
-            devolver = -1;   
+            devolver = 0;   
         }
         return devolver;
       
