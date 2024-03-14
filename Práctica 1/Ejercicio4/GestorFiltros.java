@@ -12,6 +12,10 @@ public class GestorFiltros {
     
     CadenaFiltros cadena;
     
+    public GestorFiltros(){
+        cadena = new CadenaFiltros();
+    }
+    
     public void addFiltroRoza(){
         FiltroRepercutirRozamiento fil = new FiltroRepercutirRozamiento();
         cadena.filtros.add(fil);       
@@ -22,8 +26,9 @@ public class GestorFiltros {
         cadena.filtros.add(fil); 
     }
     
-    public void peticionFiltros(){
-        
+    public double peticionFiltros(double revoluciones, EstadoMotor estadomotor){        
+        return cadena.ejecutar(revoluciones, estadomotor);       
     }
     
 }
+
