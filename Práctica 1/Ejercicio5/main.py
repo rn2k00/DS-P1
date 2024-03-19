@@ -25,7 +25,7 @@ class EstrategiaBeautifulSoup:
         # Analisis del HTML utilizando BeautifulSoup
         soup = BeautifulSoup(respuesta.text, 'html.parser')
 
-        # Extracción de la información requerida
+        # Extracción de la información requerida usando la funcion inspeccionar del navegador
         cierre_previo = soup.find("td", {"data-test": "PREV_CLOSE-value"}).text
         precio_apertura = soup.find("td", {"data-test": "OPEN-value"}).text
         volumen = soup.find("td", {"data-test": "TD_VOLUME-value"}).text
