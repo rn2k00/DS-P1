@@ -1,8 +1,3 @@
-#gp
-
-#Se importan los módulos necesarios para el scraping y el manejo de archivos JSON.
-
-
 import json 
 import requests  # Importa el módulo requests para realizar solicitudes HTTP
 from bs4 import BeautifulSoup  # Analiza la estructura HTML de las páginas web y extraer la información deseada
@@ -44,8 +39,6 @@ class EstrategiaBeautifulSoup:
             "capitalizacion": capitalizacion
         }
 
-
-
 def main():
     simbolo = "TSLA"   
      
@@ -58,9 +51,7 @@ def main():
     # Guardado de los datos en un archivo JSON
     json.dump(data, open("salida.json", "w"))
 
-
     print("salida.jason creado")
-
 
 # Llamada a la función principal
 if __name__ == "__main__":
