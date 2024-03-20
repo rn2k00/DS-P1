@@ -20,13 +20,13 @@ public class CadenaFiltros {
     }
     
     public double ejecutar(double revoluciones, EstadoMotor estadomotor){
-        double new_rev = 0;
         for (int i = 0; i < filtros.size(); i++){
-            new_rev +=filtros.get(i).ejecutar(revoluciones, estadomotor);
+            revoluciones +=filtros.get(i).ejecutar(revoluciones, estadomotor);
         }
         
-        return obj.ejecutar(new_rev, estadomotor);
+        return obj.ejecutar(revoluciones, estadomotor);
     }
     
 }
+
 
