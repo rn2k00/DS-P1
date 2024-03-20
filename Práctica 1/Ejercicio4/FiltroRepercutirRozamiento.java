@@ -12,12 +12,14 @@ public class FiltroRepercutirRozamiento implements Filtro {
     
     @Override
     public double ejecutar(double revoluciones, EstadoMotor estadomotor){
-        double rozamiento = 2.5;
-        
-        if(estadomotor == EstadoMotor.ACELERANDO || estadomotor == EstadoMotor.FRENANDO)
-            return revoluciones - rozamiento;       
+        double rozamiento = -2.5;
+        if(estadomotor == EstadoMotor.ACELERANDO || estadomotor == EstadoMotor.FRENANDO){
+            return rozamiento;  
+        }
+                 
         else
             return 0;
     }
     
 }
+
