@@ -11,7 +11,7 @@ if __name__ == "__main__":
     factoria_mont = fm.FactoriaMontana()
     factoria_carr = fc.FactoriaCarretera()
 
-    n_bicis = random.randrange(10, 30, 1)
+    n_bicis = random.randrange(10, 40, 1)
 
     for bici in range(n_bicis):
         bm = factoria_mont.crear_bicicleta(bici+1)
