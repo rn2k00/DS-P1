@@ -4,8 +4,8 @@ from BicicletaMontana import BicicletaMontana
 
 class FactoriaMontana(FactoriaCarreraBicicleta):
 
-    def crear_carrera(self, bicicletas):
-        return CarreraMontana(bicicletas)
+    def crear_carrera(self, bicicletas, porcentaje):
+        return CarreraMontana(bicicletas, porcentaje)
 
     def crear_bicicleta(self, id):
         return BicicletaMontana(id)

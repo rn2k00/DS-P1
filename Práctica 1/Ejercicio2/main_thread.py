@@ -1,7 +1,15 @@
+import threading
+import random
 import FactoriaMontana as fm
 import FactoriaCarretera as fc
-import random
-from copy import deepcopy
+
+class Thread1(threading.Thread):
+    def run(self):
+        carrera_mont.iniciar_carrera('en montaña  ')
+
+class Thread2(threading.Thread):
+    def run(self):
+        carrera_carr.iniciar_carrera('en carretera')
 
 if __name__ == "__main__":
 
@@ -20,13 +28,20 @@ if __name__ == "__main__":
         bicicletas_carr.append(bc)
 
     print("----------------------------------------------------------------------------------------------")
-    print("El numero de bicis en las carreras son: ", n_bicis)   
+    print("El numero de bicis en las carreras son: ", n_bicis) 
     print("----------------------------------------------------------------------------------------------")
-    
-    carrera_mont = factoria_mont.crear_carrera(bicicletas_mont, 0.2)
-    carrera_carr = factoria_carr.crear_carrera(bicicletas_carr, 0.1)
 
-    carrera_mont.iniciar_carrera('en montaña  ')
-    carrera_carr.iniciar_carrera('en carretera')
+    carrera_mont = factoria_mont.crear_carrera(bicicletas_mont)
+    carrera_carr = factoria_carr.crear_carrera(bicicletas_carr)
+
+    # Creamos las hebras
+    thread1 = Thread1()
+    thread2 = Thread2()
+
+    thread1.start()
+    thread2.start()
+
+    thread1.join()
+    thread2.join()
 
     print("----------------------------------------------------------------------------------------------")
