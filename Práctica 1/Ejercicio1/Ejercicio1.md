@@ -1,7 +1,7 @@
 # Ejercicio 1
 ## Funcionamiento del Programa
 ### Diagrama UML
-![Diagrama](/Diagrama-P1.png "Diagrama del Ejercicio 1")
+![Diagrama](</Práctica 1/Ejercicio1/Diagrama-P1.png> "Diagrama del Ejercicio 1")
 
 
 
