@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-class FactoriaCarreraBicicleta:
+class FactoriaCarreraBicicleta(ABC):
     
     @abstractmethod
     def crear_carrera(self):
