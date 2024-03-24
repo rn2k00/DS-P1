@@ -1,0 +1,31 @@
+site_name: 'Memoria'
+
+theme:
+  name: material
+  author: 'authors.md'
+  language: es
+  features:
+    - navigation.indexes
+    - navigation.footer  
+
+nav:
+  - Ejercicio 1: 'ejercicio1.md'
+  - Ejercicio 2: 'ejercicio2.md'
+  - Ejercicio 3: 'ejercicio3.md'
+  - Ejercicio 4: 'ejercicio4.md'
+  - Ejercicio 5: 'ejercicio5.md'
+
+plugins:
+  - search
+  - with-pdf:
+      output_path: ../memoria.pdf
+      toc_title: 'Índice'
+      cover_subtitle: 'Práctica 1'
+      author: 'Desarrollo de Software'
+      copyright: '3º Ingeniería Informática - 2023/2024'
+
+extra_css:
+  - styles.css
+
+markdown_extensions:
+  - md_in_html
