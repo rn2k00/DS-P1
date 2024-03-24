@@ -9,10 +9,8 @@ from BocataSerranitoBuilder import BocataSerranitoBuilder
 if __name__ == "__main__":
 
     print("----------------------------------------------------------------------------------------------")
-    print("Pidiendo una pizza de barbacoa y un serranito...")
-    print("----------------------------------------------------------------------------------------------")
 
-    """ InfantilBuilder = InfantilPizzaBuilder()
+    InfantilBuilder = InfantilPizzaBuilder()
     pedido1 = Director(InfantilBuilder)
     pedido1.build_food('Pizza')
     print(InfantilBuilder.pizza)
@@ -24,7 +22,7 @@ if __name__ == "__main__":
     pedido2.build_food('Pizza')
     print(VeggieBuilder.pizza)
 
-    print("----------------------------------------------------------------------------------------------") """
+    print("----------------------------------------------------------------------------------------------")
 
     BBQBuilder = BBQPizzaBuilder()
     pedido3 = Director(BBQBuilder)
@@ -33,7 +31,7 @@ if __name__ == "__main__":
 
     print("----------------------------------------------------------------------------------------------")
 
-    """ BocataCalamares = BocataCalamaresBuilder()
+    BocataCalamares = BocataCalamaresBuilder()
     pedido4 = Director(BocataCalamares)
     pedido4.build_food('Bocata')
     print(BocataCalamares.bocata)
@@ -46,7 +44,7 @@ if __name__ == "__main__":
     print(BocataPepito.bocata)
 
     print("----------------------------------------------------------------------------------------------")
- """
+
     BocataSerranito = BocataSerranitoBuilder()
     pedido6 = Director(BocataSerranito)
     pedido6.build_food('Bocata')
