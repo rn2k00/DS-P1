@@ -18,7 +18,7 @@ nav:
 plugins:
   - search
   - with-pdf:
-      output_path: ../memoria.pdf
+      output_path: ../../memoria.pdf
       toc_title: 'Índice'
       cover_subtitle: 'Práctica 1'
       author: 'Desarrollo de Software'

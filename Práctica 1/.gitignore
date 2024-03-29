@@ -1,6 +1,8 @@
 # Ingnora los modulos de python
 /Python/*
+/Python/
 /Ejercicio*/__pycache__/*
 
 # Ignora el site de la documentacion
 /Documentacion/site/*
+/Documentacion/site/
