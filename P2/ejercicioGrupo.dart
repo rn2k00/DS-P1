@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Pizza & Bocata Builder'),
+      home: const MyHomePage(title: 'Pizza & Bocata Builder'),
     );
   }
 }
@@ -21,7 +23,7 @@ class MyHomePage extends StatelessWidget {
   final String title;
 
 
-  MyHomePage({required this.title});
+  const MyHomePage({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -38,19 +40,19 @@ class MyHomePage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => PizzaOptionsPage()),
+                  MaterialPageRoute(builder: (context) => const PizzaOptionsPage()),
                 );
               },
-              child: Text('Pizza'),
+              child: const Text('Pizza'),
             ),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => BocataOptionsPage()),
+                  MaterialPageRoute(builder: (context) => const BocataOptionsPage()),
                 );
               },
-              child: Text('Bocata'),
+              child: const Text('Bocata'),
             ),
           ],
         ),
@@ -60,7 +62,7 @@ class MyHomePage extends StatelessWidget {
 }
 
 class PizzaOptionsPage extends StatefulWidget {
-  PizzaOptionsPage({super.key});
+  const PizzaOptionsPage({super.key});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -81,14 +83,16 @@ class _MyPizzaOptionsState extends State<PizzaOptionsPage> {
   String resultado = "";
 
   void construirPizza(){
-    pizza = builder.CreateNewPizza();
-    resultado = pizza.str();
+    setState(() {
+      pizza = builder.CreateNewPizza();
+      resultado = pizza.str();
+    });
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Elegir Pizza'),
+        title: const Text('Elegir Pizza'),
       ),
       body: Center(
         child: Column(
@@ -96,30 +100,30 @@ class _MyPizzaOptionsState extends State<PizzaOptionsPage> {
           children: <Widget>[
             ElevatedButton(
               onPressed: () {
-                builder = new BBQPizzaBuilder();
+                builder = BBQPizzaBuilder();
                 construirPizza();
               },
-              child: Text('Construir Pizza BBQ'),
+              child: const Text('Construir Pizza BBQ'),
             ),
             ElevatedButton(
               onPressed: () {
-                builder = new VeggiePizzaBuilder();
+                builder = VeggiePizzaBuilder();
                 construirPizza();
               },
-              child: Text('Construir Pizza Veggie'),
+              child: const Text('Construir Pizza Veggie'),
             ),
             ElevatedButton(
               onPressed: () {
-                builder = new InfantilPizzaBuilder();
+                builder = InfantilPizzaBuilder();
                 construirPizza();
               },
-              child: Text('Construir Pizza Infantil'),
+              child: const Text('Construir Pizza Infantil'),
             ),
             ElevatedButton(
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text('Volver'),
+              child: const Text('Volver'),
             ),
             Text(
                 'Su elección: $resultado',
@@ -132,7 +136,7 @@ class _MyPizzaOptionsState extends State<PizzaOptionsPage> {
 }
 
 class BocataOptionsPage extends StatefulWidget {
-  BocataOptionsPage({super.key});
+  const BocataOptionsPage({super.key});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -154,14 +158,16 @@ class _MyBocataOptionsState extends State<BocataOptionsPage> {
   String resultado = "";
 
   void construirBocata(){
+  setState(() {
     bocata = builder.CreateNewBocata();
     resultado = bocata.str();
-  }
+  });
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Elegir Bocata'),
+        title: const Text('Elegir Bocata'),
       ),
       body: Center(
         child: Column(
@@ -169,30 +175,30 @@ class _MyBocataOptionsState extends State<BocataOptionsPage> {
           children: <Widget>[
             ElevatedButton(
               onPressed: () {
-                builder = new BocataSerranitoBuilder();
+                builder = BocataSerranitoBuilder();
                 construirBocata();
               },
-              child: Text('Construir Bocata Serranito'),
+              child: const Text('Construir Bocata Serranito'),
             ),
             ElevatedButton(
               onPressed: () {
-                builder = new BocataCalamaresBuilder();
+                builder = BocataCalamaresBuilder();
                 construirBocata();
               },
-              child: Text('Construir Bocata Calamares'),
+              child: const Text('Construir Bocata Calamares'),
             ),
             ElevatedButton(
               onPressed: () {
-                builder = new BocataPepitoBuilder();
+                builder = BocataPepitoBuilder();
                 construirBocata();
               },
-              child: Text('Construir Bocata Pepito'),
+              child: const Text('Construir Bocata Pepito'),
             ),
             ElevatedButton(
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text('Volver'),
+              child: const Text('Volver'),
             ),
         Text(
             'Su elección: $resultado',
@@ -211,12 +217,12 @@ class Pizza{
   late String tamanio;
 
   String str(){
-    return "Ingredientes: "+ ing.toString() + "/n" + "Salsa :"+ salsa + "/n" +"Tipo de masa :" + tipoMasa + "/n" + "Tamaño :" +tamanio;
-  }
+    return "Ingredientes: $ing\nSalsa :$salsa\nTipo de masa :$tipoMasa\nTamaño :$tamanio";
+}
 }
 
 abstract class PizzaBuilder{
-  Pizza pi = new Pizza();
+  Pizza pi = Pizza();
   Pizza CreateNewPizza(){
     AddIngredientes();
     TipoMasa();
@@ -237,6 +243,7 @@ abstract class PizzaBuilder{
 }
 
 class BBQPizzaBuilder extends PizzaBuilder{
+  @override
   void AddIngredientes(){
     pi.ing.add("tomate");
     pi.ing.add("queso");
@@ -245,15 +252,18 @@ class BBQPizzaBuilder extends PizzaBuilder{
     pi.ing.add("jamon york");
   }
 
+  @override
   void TipoMasa(){
     pi.tipoMasa = "normal con bordes rellenos de queso";
   }
 
+  @override
   void AddSalsa(){
     pi.salsa = "Barbacoa";
 
   }
 
+  @override
   void TamanioMasa(){
     pi.tamanio = "mediana";
 
@@ -261,6 +271,7 @@ class BBQPizzaBuilder extends PizzaBuilder{
 }
 
 class VeggiePizzaBuilder extends PizzaBuilder{
+  @override
   void AddIngredientes(){
     pi.ing.add("tomate");
     pi.ing.add("queso vegano");
@@ -268,15 +279,18 @@ class VeggiePizzaBuilder extends PizzaBuilder{
     pi.ing.add("rúcula");
   }
 
+  @override
   void TipoMasa(){
     pi.tipoMasa = "fina";
   }
 
+  @override
   void AddSalsa(){
     pi.salsa = "Salsa pesto";
 
   }
 
+  @override
   void TamanioMasa(){
     pi.tamanio = "mediana";
 
@@ -284,20 +298,24 @@ class VeggiePizzaBuilder extends PizzaBuilder{
 }
 
 class InfantilPizzaBuilder extends PizzaBuilder{
+  @override
   void AddIngredientes(){
     pi.ing.add("queso");
     pi.ing.add("jamon york");
   }
 
+  @override
   void TipoMasa(){
     pi.tipoMasa = "normal";
   }
 
+  @override
   void AddSalsa(){
     pi.salsa = "Salsa casera de tomate";
 
   }
 
+  @override
   void TamanioMasa(){
     pi.tamanio = "pequeña";
 
@@ -313,12 +331,12 @@ class Bocata{
   late String tamanio;
 
   String str(){
-    return "Ingredientes: "+ ing.toString() + "/n" + "Tipo de pan :" + pan + "/n" + "Tamaño :" +tamanio;
+    return "Ingredientes: $ing\nTipo de pan :$pan\nTamaño :$tamanio";
   }
 }
 
 abstract class BocataBuilder{
-  Bocata bo = new Bocata();
+  Bocata bo = Bocata();
   Bocata CreateNewBocata(){
     AddIngredientes();
     TipoPan();
@@ -337,6 +355,7 @@ abstract class BocataBuilder{
 
 class BocataPepitoBuilder extends BocataBuilder{
 
+  @override
   void AddIngredientes(){
     bo.ing.add("tomate");
     bo.ing.add("lechuga");
@@ -344,12 +363,14 @@ class BocataPepitoBuilder extends BocataBuilder{
     bo.ing.add("mayonesa");
   }
 
+  @override
   void TipoPan(){
 
     bo.pan = "bagguette";
 
   }
 
+  @override
   void Tamanio(){
 
     bo.tamanio = "grande";
@@ -360,6 +381,7 @@ class BocataPepitoBuilder extends BocataBuilder{
 
 class BocataSerranitoBuilder extends BocataBuilder{
 
+  @override
   void AddIngredientes(){
     bo.ing.add("tomate");
     bo.ing.add("aceite");
@@ -367,12 +389,14 @@ class BocataSerranitoBuilder extends BocataBuilder{
     bo.ing.add("pimiento");
   }
 
+  @override
   void TipoPan(){
 
     bo.pan = "casero";
 
   }
 
+  @override
   void Tamanio(){
 
     bo.tamanio = "mediano";
@@ -383,17 +407,20 @@ class BocataSerranitoBuilder extends BocataBuilder{
 
 class BocataCalamaresBuilder extends BocataBuilder{
 
+  @override
   void AddIngredientes(){
     bo.ing.add("calamares fritos");
     bo.ing.add("mayonesa");
   }
 
+  @override
   void TipoPan(){
 
     bo.pan = "artesano";
 
   }
 
+  @override
   void Tamanio(){
 
     bo.tamanio = "mediano";
@@ -401,4 +428,3 @@ class BocataCalamaresBuilder extends BocataBuilder{
   }
 
 }
-
