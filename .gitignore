@@ -1,0 +1,8 @@
+# Ingnora los modulos de python
+Practica1//Python/*
+/Practica1/Python/
+Practica1/Ejercicio*/__pycache__/*
+
+# Ignora el site de la documentacion
+/Practica1/Documentacion/site/*
+/Practica2/Documentacion/site/*
