@@ -59,5 +59,13 @@
     .cuerpo {
         text-align: justify !important;
     }
+
+    .parrafo {
+        font-size: 0.8rem !important;
+    }
+
+    code {
+        font-size: 0.65rem !important;
+    }
 }
 

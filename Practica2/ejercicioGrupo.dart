@@ -126,7 +126,7 @@ class _MyPizzaOptionsState extends State<PizzaOptionsPage> {
               child: const Text('Volver'),
             ),
             Text(
-                'Su elección: $resultado',
+                '\nSu elección: $resultado',
             )
           ],
         ),
@@ -201,7 +201,7 @@ class _MyBocataOptionsState extends State<BocataOptionsPage> {
               child: const Text('Volver'),
             ),
         Text(
-            'Su elección: $resultado',
+            '\nSu elección: $resultado',
         )
           ],
         ),
@@ -217,7 +217,7 @@ class Pizza{
   late String tamanio;
 
   String str(){
-    return "Ingredientes: $ing\nSalsa :$salsa\nTipo de masa :$tipoMasa\nTamaño :$tamanio";
+    return "\nIngredientes: $ing\nSalsa :$salsa\nTipo de masa :$tipoMasa\nTamaño :$tamanio";
 }
 }
 
@@ -331,7 +331,7 @@ class Bocata{
   late String tamanio;
 
   String str(){
-    return "Ingredientes: $ing\nTipo de pan :$pan\nTamaño :$tamanio";
+    return "\nIngredientes: $ing\nTipo de pan :$pan\nTamaño :$tamanio";
   }
 }
 

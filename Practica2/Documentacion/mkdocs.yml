@@ -1,4 +1,4 @@
-site_name: 'Memoria'
+site_name: 'Memoria - Práctica 2'
 
 theme:
   name: material
@@ -16,7 +16,10 @@ plugins:
   - with-pdf:
       output_path: ../../memoria.pdf
       toc_title: 'Índice'
-      cover_subtitle: 'Práctica 2'
+      cover_subtitle: 'Miguel Ángel Pérez Olivencia, 
+                      Brandon René Morales Viracocha, 
+                      Gonzalo Morato de Tapia Caro, 
+                      Ángela Poyatos Gómez'
       author: 'Desarrollo de Software'
       copyright: '3º Ingeniería Informática - 2023/2024'
 
