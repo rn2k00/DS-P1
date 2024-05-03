@@ -81,11 +81,15 @@ class _MyPizzaOptionsState extends State<PizzaOptionsPage> {
   late Pizza pizza;
   late PizzaBuilder builder;
   String resultado = "";
+  String nombre = "";
+  List<Pizza> pedido = [];
 
   void construirPizza(){
     setState(() {
       pizza = builder.CreateNewPizza();
       resultado = pizza.str();
+      nombre = pizza.nombre;
+      pedido.add(pizza);
     });
   }
   @override
@@ -126,8 +130,26 @@ class _MyPizzaOptionsState extends State<PizzaOptionsPage> {
               child: const Text('Volver'),
             ),
             Text(
-                '\nSu elección: $resultado',
-            )
+                'Su elección: $resultado',
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: pedido.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text('Pizza ${index + 1}: ${pedido[index].nombre}'),
+                    trailing: IconButton(
+                      icon: const Icon(Icons.delete),
+                      onPressed: () {
+                        setState(() {
+                          pedido.removeAt(index);
+                        });
+                      },
+                    ),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
@@ -156,11 +178,13 @@ class _MyBocataOptionsState extends State<BocataOptionsPage> {
   late Bocata bocata;
   late BocataBuilder builder;
   String resultado = "";
+  List<Bocata> pedido = [];
 
   void construirBocata(){
   setState(() {
     bocata = builder.CreateNewBocata();
     resultado = bocata.str();
+    pedido.add(bocata);
   });
 }
   @override
@@ -201,8 +225,26 @@ class _MyBocataOptionsState extends State<BocataOptionsPage> {
               child: const Text('Volver'),
             ),
         Text(
-            '\nSu elección: $resultado',
-        )
+            'Su elección: $resultado',
+        ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: pedido.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text('Bocata ${index + 1}: ${pedido[index].nombre}'),
+                    trailing: IconButton(
+                      icon: const Icon(Icons.delete),
+                      onPressed: () {
+                        setState(() {
+                          pedido.removeAt(index);
+                        });
+                      },
+                    ),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
@@ -215,10 +257,11 @@ class Pizza{
   late String salsa;
   late String tipoMasa;
   late String tamanio;
+  late String nombre;
 
   String str(){
-    return "\nIngredientes: $ing\nSalsa :$salsa\nTipo de masa :$tipoMasa\nTamaño :$tamanio";
-}
+    return "Ingredientes: $ing\nSalsa :$salsa\nTipo de masa :$tipoMasa\nTamaño :$tamanio";
+  }
 }
 
 abstract class PizzaBuilder{
@@ -228,6 +271,7 @@ abstract class PizzaBuilder{
     TipoMasa();
     AddSalsa();
     TamanioMasa();
+    Nombre();
 
     return pi;
   }
@@ -240,6 +284,7 @@ abstract class PizzaBuilder{
 
   void TamanioMasa();
 
+  void Nombre();
 }
 
 class BBQPizzaBuilder extends PizzaBuilder{
@@ -268,6 +313,11 @@ class BBQPizzaBuilder extends PizzaBuilder{
     pi.tamanio = "mediana";
 
   }
+
+  @override
+  void Nombre(){
+    pi.nombre = "Barbacoa";
+  }
 }
 
 class VeggiePizzaBuilder extends PizzaBuilder{
@@ -295,6 +345,11 @@ class VeggiePizzaBuilder extends PizzaBuilder{
     pi.tamanio = "mediana";
 
   }
+
+  @override
+  void Nombre(){
+    pi.nombre = "Veggie";
+  }
 }
 
 class InfantilPizzaBuilder extends PizzaBuilder{
@@ -320,6 +375,11 @@ class InfantilPizzaBuilder extends PizzaBuilder{
     pi.tamanio = "pequeña";
 
   }
+
+  @override
+  void Nombre(){
+    pi.nombre = "Infantil";
+  }
 }
 
 
@@ -329,9 +389,10 @@ class Bocata{
   var ing = <String>[];
   late String pan;
   late String tamanio;
+  late String nombre;
 
   String str(){
-    return "\nIngredientes: $ing\nTipo de pan :$pan\nTamaño :$tamanio";
+    return "Ingredientes: $ing\nTipo de pan :$pan\nTamaño :$tamanio";
   }
 }
 
@@ -341,6 +402,7 @@ abstract class BocataBuilder{
     AddIngredientes();
     TipoPan();
     Tamanio();
+    Nombre();
 
     return bo;
   }
@@ -351,6 +413,7 @@ abstract class BocataBuilder{
 
   void Tamanio();
 
+  void Nombre();
 }
 
 class BocataPepitoBuilder extends BocataBuilder{
@@ -375,6 +438,11 @@ class BocataPepitoBuilder extends BocataBuilder{
 
     bo.tamanio = "grande";
 
+  }
+
+  @override
+  void Nombre(){
+    bo.nombre = "Pepito";
   }
 
 }
@@ -403,6 +471,11 @@ class BocataSerranitoBuilder extends BocataBuilder{
 
   }
 
+  @override
+  void Nombre(){
+    bo.nombre = "Serranito";
+  }
+
 }
 
 class BocataCalamaresBuilder extends BocataBuilder{
@@ -425,6 +498,11 @@ class BocataCalamaresBuilder extends BocataBuilder{
 
     bo.tamanio = "mediano";
 
+  }
+
+  @override
+  void Nombre(){
+    bo.nombre = "De Calamares";
   }
 
 }
