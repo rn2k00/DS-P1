@@ -69,8 +69,8 @@ class _MyHomePageState extends State<MyHomePage> {
           PopupMenuButton<String>(
             icon: Container(
               decoration: BoxDecoration(
-                color: Colors.black26, // Color de fondo
-                borderRadius: BorderRadius.circular(20), // Radio de los bordes
+                color: Colors.black26, 
+                borderRadius: BorderRadius.circular(20),
               ),
               padding: EdgeInsets.all(8),
               child: Text(
@@ -96,9 +96,6 @@ class _MyHomePageState extends State<MyHomePage> {
               }).toList();
             },
           )
-
-
-
         ],
       ),
       body: Column(
