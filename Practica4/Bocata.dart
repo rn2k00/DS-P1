@@ -1,6 +1,6 @@
 class Bocata {
   int? id;
-  List<String>? ing ;
+  String? ing ;
   String? pan;
   String? tamanio;
   String? nombre;
@@ -12,7 +12,7 @@ class Bocata {
   factory Bocata.fromJson(Map<String, dynamic> json) {
     return Bocata(
         id: json['id'] as int?,
-        ing: json['ing'] as List<String>,
+        ing: json['ing'] as String?,
         pan: json['pan'] as String?,
         tamanio: json['tamanio'] as String?,
         nombre: json['nombre'] as String?,
@@ -24,6 +24,7 @@ class Bocata {
   Map<String, dynamic> toJson() {
     return {
       if (id != null) 'id': id,
+      'ing': ing,
       'pan': pan,
       'Tamanio': tamanio,
       'nombre': nombre,
