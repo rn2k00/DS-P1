@@ -19,7 +19,7 @@ class Pizza {
       tamanio: json['tamanio'] as String?,
       nombre: json['nombre'] as String?,
       user: json['user'] as String?,
-      gluten: json['gluten'] as bool?
+      gluten: json['sinGluten'] as bool?
     );
   }
 
@@ -32,7 +32,7 @@ class Pizza {
       'Tamanio': tamanio,
       'nombre': nombre,
       'user': user,
-      'gluten' : gluten
+      'sinGluten' : gluten
     };
   }
 
