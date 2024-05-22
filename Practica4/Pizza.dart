@@ -1,6 +1,6 @@
 class Pizza {
   int? id;
-  List<String>? ing;
+  String? ing;
   String? salsa;
   String? tipoMasa;
   String? tamanio;
@@ -13,7 +13,7 @@ class Pizza {
   factory Pizza.fromJson(Map<String, dynamic> json) {
     return Pizza(
       id: json['id'] as int?,
-      ing: json['ing'] as List<String>,
+      ing: json['ing'] as String?,
       salsa: json['salsa'] as String?,
       tipoMasa: json['tipoMasa'] as String?,
       tamanio: json['tamanio'] as String?,
@@ -26,6 +26,7 @@ class Pizza {
   Map<String, dynamic> toJson() {
     return {
       if (id != null) 'id': id,
+      'ing': ing,
       'salsa': salsa,
       'tipoMasa': tipoMasa,
       'Tamanio': tamanio,
