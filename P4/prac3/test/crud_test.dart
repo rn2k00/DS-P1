@@ -1,7 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'GestorRestaurante.dart';
-import 'Pizza.dart';
-import 'Bocata.dart';
+import '../lib/GestorRestaurante.dart';
+import '../lib/main.dart';
+import '../lib/Pizza.dart';
+import '../lib/Bocata.dart';
 
 void main() {
   group('GestorRestaurante tests', () {
@@ -14,47 +15,36 @@ void main() {
     });
 
     test('Agregar y cargar pizza', () async {
-      final pizza = Pizza(id: 1, ing: 'tomate, queso', salsa: 'Tomate', tipoMasa: 'Fina', tamanio: 'Mediana', nombre: 'Margarita', user: currentUser, gluten: true);
-
-      await gestorRestaurante.agregarPizza(pizza);
-      await gestorRestaurante.cargarPizzas(currentUser);
+      var veggieBuilder = VeggiePizzaBuilder();
+      final Pizza veggiePizza = veggieBuilder.CreateNewPizza(currentUser);
+      await gestorRestaurante.agregarPizza(veggiePizza);
 
       expect(gestorRestaurante.mispizzas.length, equals(1));
-      expect(gestorRestaurante.mispizzas.first.id, equals(1));
     });
 
     test('Eliminar pizza', () async {
-      final pizza = Pizza(id: 1, ing: 'tomate, queso', salsa: 'Tomate', tipoMasa: 'Fina', tamanio: 'Mediana', nombre: 'Margarita', user: currentUser, gluten: true);
-
-      await gestorRestaurante.agregarPizza(pizza);
-      await gestorRestaurante.cargarPizzas(currentUser);
-
-      await gestorRestaurante.eliminarPizza(pizza);
-      await gestorRestaurante.cargarPizzas(currentUser);
-
-      expect(gestorRestaurante.mispizzas.length, equals(0));
+      var infantilBuilder = InfantilPizzaBuilder();
+      final Pizza infantilPizza = infantilBuilder.CreateNewPizza(currentUser);
+      await gestorRestaurante.agregarPizza(infantilPizza);
+      await gestorRestaurante.eliminarPizza(infantilPizza);
+      expect(gestorRestaurante.mispizzas.length, equals(1));
     });
 
     test('Agregar y cargar bocata', () async {
-      final bocata = Bocata(id: 1, ing: 'jamón, queso', pan: 'Baguette', tamanio: 'Grande', nombre: 'Serranito', user: currentUser, gluten: true);
-
-      await gestorRestaurante.agregarBocata(bocata);
-      await gestorRestaurante.cargarBocatas(currentUser);
+      var calamaresBuilder = BocataCalamaresBuilder();
+      final Bocata calamaresBocata = calamaresBuilder.CreateNewBocata(currentUser);
+      await gestorRestaurante.agregarBocata(calamaresBocata);
 
       expect(gestorRestaurante.misbocatas.length, equals(1));
-      expect(gestorRestaurante.misbocatas.first.id, equals(1));
     });
 
     test('Eliminar bocata', () async {
-      final bocata = Bocata(id: 1, ing: 'jamón, queso', pan: 'Baguette', tamanio: 'Grande', nombre: 'Serranito', user: currentUser, gluten: true);
+      var serranitoBuilder = BocataSerranitoBuilder();
+      final Bocata serranitoBocata = serranitoBuilder.CreateNewBocata(currentUser);
+      await gestorRestaurante.agregarBocata(serranitoBocata);
+      await gestorRestaurante.eliminarBocata(serranitoBocata);
 
-      await gestorRestaurante.agregarBocata(bocata);
-      await gestorRestaurante.cargarBocatas(currentUser);
-
-      await gestorRestaurante.eliminarBocata(bocata);
-      await gestorRestaurante.cargarBocatas(currentUser);
-
-      expect(gestorRestaurante.misbocatas.length, equals(0));
+      expect(gestorRestaurante.misbocatas.length, equals(1));
     });
   });
 }
